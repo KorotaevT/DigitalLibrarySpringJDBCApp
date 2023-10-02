@@ -1,13 +1,24 @@
 package ru.korotaev.libraryapp.models;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class Book {
     private Long isbn;
+
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Enter correct name")
     private String book;
+
+    @NotEmpty(message = "Author should not be empty")
+    @Size(min = 2, max = 30, message = "Enter correct name")
     private String author;
+
+    @Min(value=1900, message = "year > 1900")
     private int year;
 
-    public Book(Long isbn, String book, String author, int year) {
-        this.isbn = isbn;
+    public Book(String book, String author, int year) {
         this.book = book;
         this.author = author;
         this.year = year;

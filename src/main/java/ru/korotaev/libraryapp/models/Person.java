@@ -1,5 +1,6 @@
 package ru.korotaev.libraryapp.models;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -11,13 +12,17 @@ public class Person {
     private String name;
 
     @NotEmpty(message = "Name should not be empty")
-    @Size(min = 2, max = 30, message = "Enter correct name")
+    @Size(min = 2, max = 30, message = "Enter correct surname")
     private String surname;
+
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Enter correct patronymic")
     private String patronymic;
+
+    @Min(value=1900, message = "year > 1900")
     private String year_of_birth;
 
-    public Person(int id, String name, String surname, String patronymic, String year_of_birth) {
-        this.id = id;
+    public Person(String name, String surname, String patronymic, String year_of_birth) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
