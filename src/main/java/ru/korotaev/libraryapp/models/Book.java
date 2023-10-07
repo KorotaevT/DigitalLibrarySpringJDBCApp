@@ -8,11 +8,11 @@ public class Book {
     private Long isbn;
 
     @NotEmpty(message = "Name should not be empty")
-    @Size(min = 2, max = 30, message = "Enter correct name")
+    @Size(min = 2, max = 100, message = "Enter correct name")
     private String book;
 
     @NotEmpty(message = "Author should not be empty")
-    @Size(min = 2, max = 30, message = "Enter correct name")
+    @Size(min = 2, max = 100, message = "Enter correct name")
     private String author;
 
     private int year;

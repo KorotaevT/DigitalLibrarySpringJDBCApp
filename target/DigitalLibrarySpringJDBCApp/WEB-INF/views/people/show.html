@@ -27,6 +27,15 @@
             padding: 10px;
             text-align: left;
         }
+        .book-table th {
+            background-color: #f2f2f2; /* Light gray background for headers */
+        }
+        .book-table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternate row color 1 */
+        }
+        .book-table tr:nth-child(odd) {
+            background-color: #e3e3e3; /* Alternate row color 2 */
+        }
         .edit-form {
             margin-top: 20px;
         }
@@ -51,7 +60,7 @@
 </head>
 <body>
 
-<h1>Client Information</h1>
+<h1 style="text-align: center;">Client information</h1>
 
 <p><strong>Name:</strong> <span th:text="${person.getName()}">Value</span></p>
 <p><strong>Surname:</strong> <span th:text="${person.getSurname()}">Value</span></p>
@@ -74,8 +83,8 @@
             <th>Author</th>
             <th>Year</th>
         </tr>
-        <tr th:each="book : ${books}">
-            <td th:text="${book.getTitle()}"></td>
+        <tr th:each="book, iterStat : ${books}" th:class="${iterStat.odd} ? 'odd-row' : 'even-row'">
+            <td th:text="${book.getBook()}"></td>
             <td th:text="${book.getAuthor()}"></td>
             <td th:text="${book.getYear()}"></td>
         </tr>

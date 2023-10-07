@@ -9,6 +9,10 @@
             padding: 20px;
             background-color: lightskyblue;
         }
+        h1 {
+            text-align: center;
+            margin: 0px 0 20px 0;
+        }
         form {
             max-width: 400px;
             margin: auto;
@@ -41,7 +45,7 @@
 </head>
 <body>
 
-<h2 style="text-align: center;">Create a new person</h2>
+<h1 style="text-align: center;">Create a new person</h1>
 
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="name">Enter the name:</label>

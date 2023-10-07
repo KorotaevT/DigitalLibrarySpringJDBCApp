@@ -20,8 +20,8 @@ public class BookDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Person show(int isbn){
-        return jdbcTemplate.query("SELECT * FROM Book WHERE isbn=?", new Object[]{isbn}, new BeanPropertyRowMapper<>(Person.class))
+    public Book show(int isbn){
+        return jdbcTemplate.query("SELECT * FROM Book WHERE isbn=?", new Object[]{isbn}, new BeanPropertyRowMapper<>(Book.class))
                 .stream().findAny().orElse(null);
     }
 
