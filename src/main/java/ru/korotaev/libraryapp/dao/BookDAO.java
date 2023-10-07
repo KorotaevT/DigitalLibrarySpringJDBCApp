@@ -43,7 +43,7 @@ public class BookDAO {
     }
 
     public Optional<Person> getBookOwner(int isbn){
-        return jdbcTemplate.query("SELSECT Person.* FROM Book Join Person ON Book.person_id person.id" +
+        return jdbcTemplate.query("SELECT Person.* FROM Book Join Person ON Book.person_id = person.id " +
                 "WHERE Book.isbn=?", new Object[]{isbn}, new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny();
     }
@@ -53,7 +53,7 @@ public class BookDAO {
     }
 
     public void assign(int isbn, Person selectedPerson){
-        jdbcTemplate.update("UPDATE Book SET person_id=NULL WHERE isbn=?", selectedPerson.getId());
+        jdbcTemplate.update("UPDATE Book SET person_id=? WHERE isbn=?", selectedPerson.getId(), isbn);
     }
 
 

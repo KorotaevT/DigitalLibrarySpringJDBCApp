@@ -1,6 +1,7 @@
 package ru.korotaev.libraryapp.config;
 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -30,9 +31,10 @@ public class LibraryDispatcherServletInitializer extends AbstractAnnotationConfi
         registerHiddenFieldFilter(aServletContext);
     }
 
+
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 
     private void registerCharacterEncodingFilter(ServletContext aContext) {
@@ -45,4 +47,5 @@ public class LibraryDispatcherServletInitializer extends AbstractAnnotationConfi
         FilterRegistration.Dynamic characterEncoding = aContext.addFilter("characterEncoding", characterEncodingFilter);
         characterEncoding.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
     }
+
 }

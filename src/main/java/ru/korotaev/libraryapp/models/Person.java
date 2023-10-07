@@ -19,10 +19,10 @@ public class Person {
     @Size(min = 2, max = 30, message = "Enter correct patronymic")
     private String patronymic;
 
-    @Min(value=1900, message = "year > 1900")
-    private String year_of_birth;
+    @Min(value=1901, message = "year > 1900")
+    private int year_of_birth;
 
-    public Person(String name, String surname, String patronymic, String year_of_birth) {
+    public Person(String name, String surname, String patronymic, int year_of_birth) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -31,12 +31,10 @@ public class Person {
 
     public Person() {}
 
-    public int getId() {
-        return id;
-    }
+    public int getId() {return id;}
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int person_id) {
+        this.id = person_id;
     }
 
     public String getName() {
@@ -63,11 +61,11 @@ public class Person {
         this.patronymic = patronymic;
     }
 
-    public String getYear_of_birth() {
+    public int getYear_of_birth() {
         return year_of_birth;
     }
 
-    public void setYear_of_birth(String year_of_birth) {
+    public void setYear_of_birth(int year_of_birth) {
         this.year_of_birth = year_of_birth;
     }
 }

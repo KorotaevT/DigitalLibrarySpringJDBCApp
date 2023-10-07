@@ -46,7 +46,7 @@ public class PersonDAO {
     }
 
     public void save(Person person){
-        jdbcTemplate.update("INSERT INTO Person(name, surname, patronymic, year_of_birth) VALUES(?, ?, ?, ?)", person.getName(), person.getSurname(), person.getPatronymic(), person.getYear_of_birth());
+        jdbcTemplate.update("INSERT INTO Person (name, surname, patronymic, year_of_birth) VALUES(?, ?, ?, ?)", person.getName(), person.getSurname(), person.getPatronymic(), person.getYear_of_birth());
     }
 
     public void update(int id, Person updatedPerson){
@@ -59,6 +59,6 @@ public class PersonDAO {
     }
 
     public List<Book> getBooksByPersonId(int id){
-        return jdbcTemplate.query("SELECT * FROM Book WHERE person_id = ?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class));
+        return jdbcTemplate.query("SELECT * FROM Book WHERE isbn = ?", new Object[]{id}, new BeanPropertyRowMapper<>(Book.class));
     }
 }

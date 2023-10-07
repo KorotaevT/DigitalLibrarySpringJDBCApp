@@ -15,7 +15,6 @@ public class Book {
     @Size(min = 2, max = 30, message = "Enter correct name")
     private String author;
 
-    @Min(value=1900, message = "year > 1900")
     private int year;
 
     public Book(String book, String author, int year) {
